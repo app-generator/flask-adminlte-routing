@@ -15,6 +15,15 @@ def index():
 
     return render_template('index.html', segment='index.html')
 
+@blueprint.route('/leaveapproval', methods=['GET', 'POST'])
+#@login_required         # <-- Ucomment if you need PRIVATE access
+def leaveapproval():
+
+    if request.method =="GET":
+        return 'GET Request'
+    else:
+        return 'POST Request'    
+
 @blueprint.route('/<template>')
 @login_required
 def route_template(template):
