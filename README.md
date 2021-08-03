@@ -4,6 +4,32 @@
 
 <br />
 
+> POST/GET Sample Route
+
+The file [app/home/routes.py](https://github.com/app-generator/flask-adminlte-routing/blob/master/app/home/routes.py) has been updated to return simple strings on `POST` / `GET` requests: 
+
+```python
+@blueprint.route('/leaveapproval', methods=['GET', 'POST'])
+#@login_required         # <-- Ucomment if you need PRIVATE access
+def leaveapproval():
+
+    if request.method =="GET":
+        return 'GET Request'
+    else:
+        return 'POST Request' 
+```
+
+To test the get request, just start the app and access `http://localhost:5000/leaveapproval`. For POST request `cURL` might be a good choice: 
+
+```bash
+$ curl -X POST http://localhost:5000/leaveapproval
+POST Request 
+```
+
+The new controller can be accessed without a login because `login_required` decorator is commented. 
+
+<br />
+
 > Features
 
 - DBMS: SQLite, PostgreSQL (production) 
